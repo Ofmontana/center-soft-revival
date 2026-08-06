@@ -131,7 +131,7 @@ const navItems = [
 function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5">
+      <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-2">
         <Link to="/" className="flex items-baseline gap-2">
           <span className="font-display text-lg font-bold tracking-tight text-foreground">
             Center<span className="text-accent">-</span>Soft
