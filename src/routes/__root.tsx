@@ -120,10 +120,13 @@ function RootShell({ children }: { children: ReactNode }) {
 
 const navItems = [
   { to: "/", label: "Inicio" },
+  { to: "/nosotros", label: "Quiénes somos" },
   { to: "/servicios", label: "Servicios" },
-  { to: "/nosotros", label: "Nosotros" },
+  { to: "/cursos", label: "Cursos" },
+  { to: "/clientes", label: "Clientes" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
+
 
 function SiteHeader() {
   return (
