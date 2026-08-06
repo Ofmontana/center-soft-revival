@@ -141,7 +141,7 @@ function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-1">
+        <nav className="flex flex-wrap items-center justify-end gap-0.5">
           {navItems.map((item) => (
             <Link
               key={item.to}
@@ -149,7 +149,7 @@ function SiteHeader() {
               activeOptions={{ exact: item.to === "/" }}
               activeProps={{ className: "text-foreground bg-secondary" }}
               inactiveProps={{ className: "text-muted-foreground" }}
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground"
+              className="rounded-md px-2.5 py-2 text-[0.8rem] font-medium transition-colors hover:text-foreground sm:text-sm"
             >
               {item.label}
             </Link>
@@ -159,6 +159,7 @@ function SiteHeader() {
     </header>
   );
 }
+
 
 function SiteFooter() {
   return (
