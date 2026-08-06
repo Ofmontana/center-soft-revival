@@ -121,6 +121,41 @@ function Index() {
         </div>
       </section>
 
+      <section className="border-y border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <p className="eyebrow text-accent">Clientes</p>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            Confiaron la capacitación de su personal a Center-Soft
+          </h2>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {[
+              "FIAT Auto Argentina",
+              "IVECO Argentina",
+              "Volkswagen Córdoba",
+              "Scania Argentina",
+              "Chrysler Argentina",
+              "Perkins",
+              "Teksid Argentina",
+              "Grandes Motores Diesel",
+            ].map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm text-card-foreground"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+          <Link
+            to="/clientes"
+            className="mt-8 inline-block text-sm font-semibold text-accent hover:underline"
+          >
+            Ver todos los clientes →
+          </Link>
+        </div>
+      </section>
+
+
       <section className="mx-auto max-w-6xl px-5 pb-4">
         <div className="surface-ink rounded-2xl px-8 py-14 text-center">
           <h2 className="text-2xl font-bold text-ink-foreground sm:text-3xl">
