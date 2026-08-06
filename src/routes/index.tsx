@@ -54,7 +54,7 @@ function Index() {
       <section className="surface-ink relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:py-28">
           <div>
-            <p className="eyebrow text-ink-foreground/70">Servicios profesionales · desde 1985</p>
+            <p className="eyebrow text-ink-foreground/70">Servicios profesionales · Córdoba · desde 1985</p>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-ink-foreground sm:text-5xl lg:text-6xl">
               41 años formando a la industria argentina
             </h1>
@@ -63,6 +63,7 @@ function Index() {
               capacitación técnica y formación profesional, orientados a satisfacer las necesidades
               del sector empresarial y de particulares.
             </p>
+
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/servicios"
