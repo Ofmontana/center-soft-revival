@@ -1,24 +1,141 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import heroImage from "@/assets/hero-capacitacion.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Center-Soft | 41 años en capacitación técnica y formación profesional" },
+      {
+        name: "description",
+        content:
+          "Desde 1985 diseñamos e implementamos proyectos de capacitación técnica y formación profesional para la industria automotriz, metalmecánica y particulares.",
+      },
+      { property: "og:title", content: "Center-Soft | Capacitación técnica desde 1985" },
+      {
+        property: "og:description",
+        content:
+          "41 años de experiencia en proyectos de formación profesional para el sector empresarial y particulares.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const pillars = [
+  {
+    title: "Capacitación técnica",
+    text: "Programas a medida sobre procesos, equipamiento y tecnologías propias de cada planta, dictados en sitio o en aula.",
+  },
+  {
+    title: "Formación profesional",
+    text: "Trayectos formativos para operarios, técnicos y mandos medios, con evaluación de competencias y seguimiento.",
+  },
+  {
+    title: "Servicios informáticos",
+    text: "Soporte, herramientas digitales y material didáctico para sostener los planes de formación en el tiempo.",
+  },
+  {
+    title: "Cursos para particulares",
+    text: "Formación abierta para quienes buscan desarrollar o actualizar sus competencias técnicas.",
+  },
+];
+
+const stats = [
+  { value: "1985", label: "Año de fundación" },
+  { value: "41", label: "Años de actividad" },
+  { value: "+100", label: "Programas dictados" },
+  { value: "2", label: "Sectores clave: automotriz y metalmecánica" },
+];
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <section className="surface-ink relative overflow-hidden">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:py-28">
+          <div>
+            <p className="eyebrow text-ink-foreground/70">Servicios profesionales · desde 1985</p>
+            <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-ink-foreground sm:text-5xl lg:text-6xl">
+              41 años formando a la industria argentina
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80">
+              Center-Soft es una empresa de servicios profesionales vinculados a proyectos de
+              capacitación técnica y formación profesional, orientados a satisfacer las necesidades
+              del sector empresarial y de particulares.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                to="/servicios"
+                className="rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+              >
+                Ver servicios
+              </Link>
+              <Link
+                to="/contacto"
+                className="rounded-md border border-ink-foreground/25 px-6 py-3 text-sm font-semibold text-ink-foreground transition-colors hover:bg-ink-foreground/10"
+              >
+                Solicitar una propuesta
+              </Link>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-xl border border-ink-foreground/15 shadow-[var(--shadow-panel)]">
+            <img
+              src={heroImage}
+              alt="Instructor de Center-Soft dictando una capacitación técnica frente a operarios en planta industrial"
+              width={1600}
+              height={1104}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-surface">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-5 py-12 lg:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <p className="font-display text-3xl font-bold text-foreground">{s.value}</p>
+              <p className="mt-1 text-sm leading-snug text-muted-foreground">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-20">
+        <p className="eyebrow text-accent">Qué hacemos</p>
+        <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
+          Proyectos de formación diseñados sobre la realidad de cada empresa
+        </h2>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {pillars.map((p) => (
+            <article
+              key={p.title}
+              className="rounded-xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-colors hover:border-accent/50"
+            >
+              <h3 className="text-lg font-semibold text-card-foreground">{p.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-4">
+        <div className="surface-ink rounded-2xl px-8 py-14 text-center">
+          <h2 className="text-2xl font-bold text-ink-foreground sm:text-3xl">
+            ¿Necesitás un plan de capacitación para tu equipo?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-ink-foreground/80">
+            Analizamos las necesidades de tu organización y armamos una propuesta concreta, con
+            objetivos, contenidos y modalidad de dictado.
+          </p>
+          <Link
+            to="/contacto"
+            className="mt-8 inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+          >
+            Contactanos
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
