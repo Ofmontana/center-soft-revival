@@ -4,11 +4,11 @@ import { useState, type FormEvent } from "react";
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
-      { title: "Contacto | Center-Soft capacitación técnica" },
+      { title: "Contacto | Center-Soft Córdoba — capacitación técnica" },
       {
         name: "description",
         content:
-          "Contactá a Center-Soft para diseñar un plan de capacitación técnica o formación profesional para tu empresa o para vos.",
+          "Contactá a Center-Soft: Av. Vélez Sarsfield 56, 1er piso, Complejo Santo Domingo, Córdoba. Tel. (0351) 7112213 · info@center-soft.com.ar",
       },
       { property: "og:title", content: "Contacto | Center-Soft" },
       {
@@ -31,7 +31,7 @@ function ContactoPage() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-16">
       <p className="eyebrow text-accent">Contacto</p>
-      <h1 className="mt-4 max-w-2xl text-4xl font-bold sm:text-5xl">Hablemos de tu proyecto</h1>
+      <h1 className="mt-4 max-w-2xl text-4xl font-bold sm:text-5xl">Dejanos tu consulta</h1>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
         Completá el formulario o escribinos directamente. Respondemos con una propuesta inicial
         sobre objetivos, contenidos y modalidad de dictado.
@@ -44,7 +44,7 @@ function ContactoPage() {
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="text-sm font-medium">
-              Nombre y apellido
+              Nombre *
               <input
                 required
                 name="nombre"
@@ -52,14 +52,15 @@ function ContactoPage() {
               />
             </label>
             <label className="text-sm font-medium">
-              Empresa (opcional)
+              Apellido *
               <input
-                name="empresa"
+                required
+                name="apellido"
                 className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:border-accent focus:ring-2 focus:ring-ring/30"
               />
             </label>
             <label className="text-sm font-medium">
-              Email
+              Email *
               <input
                 required
                 type="email"
@@ -68,6 +69,13 @@ function ContactoPage() {
               />
             </label>
             <label className="text-sm font-medium">
+              Empresa
+              <input
+                name="empresa"
+                className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:border-accent focus:ring-2 focus:ring-ring/30"
+              />
+            </label>
+            <label className="text-sm font-medium sm:col-span-2">
               Teléfono
               <input
                 name="telefono"
@@ -77,7 +85,7 @@ function ContactoPage() {
           </div>
 
           <label className="mt-5 block text-sm font-medium">
-            ¿Qué necesitás?
+            Consulta *
             <textarea
               required
               name="mensaje"
@@ -86,9 +94,11 @@ function ContactoPage() {
             />
           </label>
 
+          <p className="mt-3 text-xs text-muted-foreground">(*) Campos obligatorios.</p>
+
           <button
             type="submit"
-            className="mt-6 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="mt-5 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
             Enviar consulta
           </button>
@@ -105,12 +115,27 @@ function ContactoPage() {
             <p className="eyebrow text-muted-foreground">Datos de contacto</p>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li>
+                <a className="hover:text-foreground" href="tel:+543517112213">
+                  (0351) 711 2213
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-foreground" href="tel:+5493515480092">
+                  0351-15 548 0092
+                </a>
+              </li>
+              <li>
                 <a className="hover:text-foreground" href="mailto:info@center-soft.com.ar">
                   info@center-soft.com.ar
                 </a>
               </li>
-              <li>www.center-soft.com.ar</li>
-              <li>Argentina</li>
+              <li>
+                Av. Vélez Sarsfield 56 — 1er piso
+                <br />
+                Complejo Santo Domingo
+                <br />
+                Córdoba, Argentina
+              </li>
             </ul>
           </div>
           <div className="surface-ink rounded-xl p-7">

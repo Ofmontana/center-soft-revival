@@ -24,28 +24,29 @@ export const Route = createFileRoute("/")({
 const pillars = [
   {
     title: "Capacitación técnica",
-    text: "Programas a medida sobre procesos, equipamiento y tecnologías propias de cada planta, dictados en sitio o en aula.",
+    text: "CNC, PLC, metrología, interpretación de planos y sistemas de medición CMM, con prácticas sobre el equipamiento real de cada planta.",
   },
   {
     title: "Formación profesional",
-    text: "Trayectos formativos para operarios, técnicos y mandos medios, con evaluación de competencias y seguimiento.",
+    text: "Diseño del perfil de competencias, relevamiento del nivel real, temarios, cronogramas y tests de nivelación.",
   },
   {
-    title: "Servicios informáticos",
-    text: "Soporte, herramientas digitales y material didáctico para sostener los planes de formación en el tiempo.",
+    title: "Asesoramiento y sistemas",
+    text: "Análisis, desarrollo e implementación de software, redes, mantenimiento y programación de PLC y CNC.",
   },
   {
-    title: "Cursos para particulares",
-    text: "Formación abierta para quienes buscan desarrollar o actualizar sus competencias técnicas.",
+    title: "División idiomas",
+    text: "Inglés general y de negocios, portugués en convenio con CEPE y español para extranjeros.",
   },
 ];
 
 const stats = [
   { value: "1985", label: "Año de fundación" },
   { value: "41", label: "Años de actividad" },
-  { value: "+100", label: "Programas dictados" },
-  { value: "2", label: "Sectores clave: automotriz y metalmecánica" },
+  { value: "+25", label: "Empresas clientes de primera línea" },
+  { value: "Córdoba", label: "Base de operaciones, con dictado en planta" },
 ];
+
 
 function Index() {
   return (
@@ -53,7 +54,7 @@ function Index() {
       <section className="surface-ink relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:py-28">
           <div>
-            <p className="eyebrow text-ink-foreground/70">Servicios profesionales · desde 1985</p>
+            <p className="eyebrow text-ink-foreground/70">Servicios profesionales · Córdoba · desde 1985</p>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-ink-foreground sm:text-5xl lg:text-6xl">
               41 años formando a la industria argentina
             </h1>
@@ -62,6 +63,7 @@ function Index() {
               capacitación técnica y formación profesional, orientados a satisfacer las necesidades
               del sector empresarial y de particulares.
             </p>
+
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/servicios"
@@ -118,6 +120,41 @@ function Index() {
           ))}
         </div>
       </section>
+
+      <section className="border-y border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <p className="eyebrow text-accent">Clientes</p>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            Confiaron la capacitación de su personal a Center-Soft
+          </h2>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {[
+              "FIAT Auto Argentina",
+              "IVECO Argentina",
+              "Volkswagen Córdoba",
+              "Scania Argentina",
+              "Chrysler Argentina",
+              "Perkins",
+              "Teksid Argentina",
+              "Grandes Motores Diesel",
+            ].map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm text-card-foreground"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+          <Link
+            to="/clientes"
+            className="mt-8 inline-block text-sm font-semibold text-accent hover:underline"
+          >
+            Ver todos los clientes →
+          </Link>
+        </div>
+      </section>
+
 
       <section className="mx-auto max-w-6xl px-5 pb-4">
         <div className="surface-ink rounded-2xl px-8 py-14 text-center">

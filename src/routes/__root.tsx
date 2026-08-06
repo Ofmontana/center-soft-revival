@@ -120,15 +120,18 @@ function RootShell({ children }: { children: ReactNode }) {
 
 const navItems = [
   { to: "/", label: "Inicio" },
+  { to: "/nosotros", label: "Quiénes somos" },
   { to: "/servicios", label: "Servicios" },
-  { to: "/nosotros", label: "Nosotros" },
+  { to: "/cursos", label: "Cursos" },
+  { to: "/clientes", label: "Clientes" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
+
 
 function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5">
+      <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-2">
         <Link to="/" className="flex items-baseline gap-2">
           <span className="font-display text-lg font-bold tracking-tight text-foreground">
             Center<span className="text-accent">-</span>Soft
@@ -138,7 +141,7 @@ function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-1">
+        <nav className="flex flex-wrap items-center justify-end gap-0.5">
           {navItems.map((item) => (
             <Link
               key={item.to}
@@ -146,7 +149,7 @@ function SiteHeader() {
               activeOptions={{ exact: item.to === "/" }}
               activeProps={{ className: "text-foreground bg-secondary" }}
               inactiveProps={{ className: "text-muted-foreground" }}
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground"
+              className="rounded-md px-2.5 py-2 text-[0.8rem] font-medium transition-colors hover:text-foreground sm:text-sm"
             >
               {item.label}
             </Link>
@@ -156,6 +159,7 @@ function SiteHeader() {
     </header>
   );
 }
+
 
 function SiteFooter() {
   return (
@@ -184,13 +188,24 @@ function SiteFooter() {
           <p className="eyebrow text-muted-foreground">Contacto</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li>
+              <a className="transition-colors hover:text-foreground" href="tel:+543517112213">
+                (0351) 711 2213
+              </a>
+            </li>
+            <li>
               <a className="transition-colors hover:text-foreground" href="mailto:info@center-soft.com.ar">
                 info@center-soft.com.ar
               </a>
             </li>
-            <li>www.center-soft.com.ar</li>
-            <li>Argentina</li>
+            <li>
+              Av. Vélez Sarsfield 56 — 1er piso
+              <br />
+              Complejo Santo Domingo
+              <br />
+              Córdoba, Argentina
+            </li>
           </ul>
+
         </div>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
