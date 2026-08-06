@@ -188,13 +188,24 @@ function SiteFooter() {
           <p className="eyebrow text-muted-foreground">Contacto</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li>
+              <a className="transition-colors hover:text-foreground" href="tel:+543517112213">
+                (0351) 711 2213
+              </a>
+            </li>
+            <li>
               <a className="transition-colors hover:text-foreground" href="mailto:info@center-soft.com.ar">
                 info@center-soft.com.ar
               </a>
             </li>
-            <li>www.center-soft.com.ar</li>
-            <li>Argentina</li>
+            <li>
+              Av. Vélez Sarsfield 56 — 1er piso
+              <br />
+              Complejo Santo Domingo
+              <br />
+              Córdoba, Argentina
+            </li>
           </ul>
+
         </div>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
