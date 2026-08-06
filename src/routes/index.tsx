@@ -24,28 +24,29 @@ export const Route = createFileRoute("/")({
 const pillars = [
   {
     title: "Capacitación técnica",
-    text: "Programas a medida sobre procesos, equipamiento y tecnologías propias de cada planta, dictados en sitio o en aula.",
+    text: "CNC, PLC, metrología, interpretación de planos y sistemas de medición CMM, con prácticas sobre el equipamiento real de cada planta.",
   },
   {
     title: "Formación profesional",
-    text: "Trayectos formativos para operarios, técnicos y mandos medios, con evaluación de competencias y seguimiento.",
+    text: "Diseño del perfil de competencias, relevamiento del nivel real, temarios, cronogramas y tests de nivelación.",
   },
   {
-    title: "Servicios informáticos",
-    text: "Soporte, herramientas digitales y material didáctico para sostener los planes de formación en el tiempo.",
+    title: "Asesoramiento y sistemas",
+    text: "Análisis, desarrollo e implementación de software, redes, mantenimiento y programación de PLC y CNC.",
   },
   {
-    title: "Cursos para particulares",
-    text: "Formación abierta para quienes buscan desarrollar o actualizar sus competencias técnicas.",
+    title: "División idiomas",
+    text: "Inglés general y de negocios, portugués en convenio con CEPE y español para extranjeros.",
   },
 ];
 
 const stats = [
   { value: "1985", label: "Año de fundación" },
   { value: "41", label: "Años de actividad" },
-  { value: "+100", label: "Programas dictados" },
-  { value: "2", label: "Sectores clave: automotriz y metalmecánica" },
+  { value: "+25", label: "Empresas clientes de primera línea" },
+  { value: "Córdoba", label: "Base de operaciones, con dictado en planta" },
 ];
+
 
 function Index() {
   return (
