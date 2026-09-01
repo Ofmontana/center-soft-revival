@@ -36,7 +36,7 @@ const pillars = [
   },
   {
     title: "División idiomas",
-    text: "Inglés general y de negocios, portugués en convenio con CEPE y español para extranjeros.",
+    text: "Inglés general y de negocios, portugués en convenio con CEPE IDIOMAS y español para extranjeros.",
   },
 ];
 
@@ -44,7 +44,7 @@ const stats = [
   { value: "1985", label: "Año de fundación" },
   { value: "41", label: "Años de actividad" },
   { value: "+25", label: "Empresas clientes de primera línea" },
-  { value: "Córdoba", label: "Base de operaciones, con dictado en planta" },
+  { value: "Córdoba", label: "Base de operaciones, con dictado en planta, en nuestras instalaciones y online" },
 ];
 
 
