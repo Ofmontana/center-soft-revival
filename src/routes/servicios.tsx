@@ -32,12 +32,7 @@ const areas = [
   {
     title: "Área informática",
     items: [
-      "Sistemas operativos: Windows, Linux, Android",
-      "Procesadores de texto y edición (MS Word)",
       "Planillas de cálculo (MS Excel: básico, intermedio y macros)",
-      "Bases de datos (Access, SQL Server, MySQL)",
-      "Presentaciones y graficadores (PowerPoint y otros)",
-      "Office Automation integrado (Windows, Word, Excel, PowerPoint, Outlook)",
       "Herramientas de diseño gráfico",
       "Lenguajes de programación, niveles básico y avanzado",
       "Diseño asistido: AutoCAD, SolidWorks, Catia V5",
@@ -186,7 +181,7 @@ function ServiciosPage() {
             </li>
             <li className="flex gap-2">
               <span className="text-accent">—</span>
-              Portugués, en convenio con CEPE (Centro de Enseñanza de Portugués para Extranjeros).
+              Portugués, en convenio con CEPE IDIOMAS (Centro de Enseñanza de Portugués para Extranjeros).
             </li>
             <li className="flex gap-2">
               <span className="text-accent">—</span>

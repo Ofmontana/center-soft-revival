@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import logoAsset from "../assets/center-soft-logo.jpg.asset.json";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -95,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
@@ -132,10 +133,12 @@ function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
       <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-2">
-        <Link to="/" className="flex items-baseline gap-2">
-          <span className="font-display text-lg font-bold tracking-tight text-foreground">
-            Center<span className="text-accent">-</span>Soft
-          </span>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logoAsset.url}
+            alt="Logo de Center-Soft"
+            className="h-10 w-auto rounded"
+          />
           <span className="hidden text-[0.65rem] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:inline">
             desde 1985
           </span>
@@ -188,8 +191,8 @@ function SiteFooter() {
           <p className="eyebrow text-muted-foreground">Contacto</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li>
-              <a className="transition-colors hover:text-foreground" href="tel:+543517112213">
-                (0351) 711 2213
+              <a className="transition-colors hover:text-foreground" href="tel:+5493515480092">
+                +54 351 5480092
               </a>
             </li>
             <li>

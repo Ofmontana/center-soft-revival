@@ -8,7 +8,7 @@ export const Route = createFileRoute("/contacto")({
       {
         name: "description",
         content:
-          "Contactá a Center-Soft: Av. Vélez Sarsfield 56, 1er piso, Complejo Santo Domingo, Córdoba. Tel. (0351) 7112213 · info@center-soft.com.ar",
+          "Contactá a Center-Soft: Av. Vélez Sarsfield 56, 1er piso, Complejo Santo Domingo, Córdoba. Tel. +54 351 5480092 · info@center-soft.com.ar",
       },
       { property: "og:title", content: "Contacto | Center-Soft" },
       {
@@ -115,13 +115,8 @@ function ContactoPage() {
             <p className="eyebrow text-muted-foreground">Datos de contacto</p>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li>
-                <a className="hover:text-foreground" href="tel:+543517112213">
-                  (0351) 711 2213
-                </a>
-              </li>
-              <li>
                 <a className="hover:text-foreground" href="tel:+5493515480092">
-                  0351-15 548 0092
+                  +54 351 5480092
                 </a>
               </li>
               <li>
