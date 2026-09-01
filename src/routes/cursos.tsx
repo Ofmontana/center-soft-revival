@@ -53,7 +53,7 @@ const courses = [
   },
   {
     title: "Idiomas",
-    text: "Inglés en distintos niveles (general y de negocios), portugués en convenio con CEPE y español para extranjeros.",
+    text: "Inglés en distintos niveles (general y de negocios), portugués y español para extranjeros, en convenio con CEPE IDIOMAS.",
     tag: "División idiomas",
   },
   {

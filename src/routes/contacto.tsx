@@ -136,7 +136,7 @@ function ContactoPage() {
           <div className="surface-ink rounded-xl p-7">
             <p className="font-display text-2xl font-bold text-ink-foreground">41 años</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-foreground/80">
-              de experiencia en capacitación técnica para la industria automotriz y metalmecánica.
+              acompañando en la formación técnica e informática a empresas de Argentina y el mundo.
             </p>
           </div>
         </aside>

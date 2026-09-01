@@ -47,6 +47,9 @@ const clients = [
   "Cámara de Farmacias de la Provincia de Córdoba",
   "FUMISCOR",
   "Pedemonte y Asociados",
+  "Systel S.A.",
+  "Pertrak S.A.",
+  "Chialvo S.R.L.",
 ];
 
 function ClientesPage() {

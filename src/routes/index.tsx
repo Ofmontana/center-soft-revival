@@ -36,7 +36,7 @@ const pillars = [
   },
   {
     title: "División idiomas",
-    text: "Inglés general y de negocios, portugués en convenio con CEPE IDIOMAS y español para extranjeros.",
+    text: "Inglés general y de negocios, portugués y español para extranjeros, en convenio con CEPE IDIOMAS.",
   },
 ];
 
