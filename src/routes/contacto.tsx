@@ -24,9 +24,25 @@ function ContactoPage() {
   const [sent, setSent] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSent(true);
-  }
+  event.preventDefault();
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+  formData.append("access_key", "3367bced-7748-4363-84a1-ba5a0d028fc0");
+  formData.append("subject", "Nueva consulta desde center-soft.com.ar");
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        setSent(true);
+        form.reset();
+      }
+    })
+    .catch((err) => console.error(err));
+}
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-16">
