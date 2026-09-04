@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import logoAsset from "../assets/center-soft-logo.jpg.asset.json";
+
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -135,7 +135,7 @@ function SiteHeader() {
       <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-2">
         <Link to="/" className="flex items-center gap-3">
           <img
-            src={logoAsset.url}
+            src="/center-soft-logo.jpg"
             alt="Logo de Center-Soft"
             className="h-10 w-auto rounded"
           />
