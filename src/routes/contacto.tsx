@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
-      { title: "Contacto | Center-Soft Córdoba — capacitación técnica" },
+      { title: "Contacto | Center-Soft Córdoba - capacitación técnica" },
       {
         name: "description",
         content:
@@ -13,7 +13,8 @@ export const Route = createFileRoute("/contacto")({
       { property: "og:title", content: "Contacto | Center-Soft" },
       {
         property: "og:description",
-        content: "Escribinos y armamos una propuesta de capacitación a medida de tu operación.",
+        content:
+          "Escribinos y armamos una propuesta de capacitación a medida de tu operación.",
       },
     ],
   }),
@@ -22,35 +23,56 @@ export const Route = createFileRoute("/contacto")({
 
 function ContactoPage() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const formData = new FormData(form);
-  formData.append("access_key", "3367bced-7748-4363-84a1-ba5a0d028fc0");
-  formData.append("subject", "Nueva consulta desde center-soft.com.ar");
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-  fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    body: formData,
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.success) {
-        setSent(true);
-        form.reset();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    setSending(true);
+    setSent(false);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "No se pudo enviar la consulta.");
       }
-    })
-    .catch((err) => console.error(err));
-}
+
+      setSent(true);
+      form.reset();
+    } catch (submissionError) {
+      console.error(submissionError);
+      setError(
+        "No pudimos enviar la consulta. Intentá nuevamente en unos minutos.",
+      );
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-16">
       <p className="eyebrow text-accent">Contacto</p>
-      <h1 className="mt-4 max-w-2xl text-4xl font-bold sm:text-5xl">Dejanos tu consulta</h1>
+      <h1 className="mt-4 max-w-2xl text-4xl font-bold sm:text-5xl">
+        Dejanos tu consulta
+      </h1>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Completá el formulario o escribinos directamente. Respondemos con una propuesta inicial
-        sobre objetivos, contenidos y modalidad de dictado.
+        Completá el formulario o escribinos directamente. Respondemos con una
+        propuesta inicial sobre objetivos, contenidos y modalidad de dictado.
       </p>
 
       <div className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
@@ -64,6 +86,7 @@ function ContactoPage() {
               <input
                 required
                 name="nombre"
+                autoComplete="given-name"
                 className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:border-accent focus:ring-2 focus:ring-ring/30"
               />
             </label>
@@ -72,6 +95,7 @@ function ContactoPage() {
               <input
                 required
                 name="apellido"
+                autoComplete="family-name"
                 className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:border-accent focus:ring-2 focus:ring-ring/30"
               />
             </label>
@@ -81,6 +105,7 @@ function ContactoPage() {
                 required
                 type="email"
                 name="email"
+                autoComplete="email"
                 className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:border-accent focus:ring-2 focus:ring-ring/30"
               />
             </label>
@@ -88,6 +113,7 @@ function ContactoPage() {
               Empresa
               <input
                 name="empresa"
+                autoComplete="organization"
                 className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:border-accent focus:ring-2 focus:ring-ring/30"
               />
             </label>
@@ -95,6 +121,7 @@ function ContactoPage() {
               Teléfono
               <input
                 name="telefono"
+                autoComplete="tel"
                 className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:border-accent focus:ring-2 focus:ring-ring/30"
               />
             </label>
@@ -110,18 +137,36 @@ function ContactoPage() {
             />
           </label>
 
-          <p className="mt-3 text-xs text-muted-foreground">(*) Campos obligatorios.</p>
+          {/* Campo trampa para bots. Debe quedar oculto para visitantes. */}
+          <input
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            className="absolute left-[-9999px] h-px w-px opacity-0"
+            aria-hidden="true"
+          />
+
+          <p className="mt-3 text-xs text-muted-foreground">
+            (*) Campos obligatorios.
+          </p>
 
           <button
             type="submit"
-            className="mt-5 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            disabled={sending}
+            className="mt-5 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Enviar consulta
+            {sending ? "Enviando..." : "Enviar consulta"}
           </button>
 
           {sent && (
-            <p className="mt-4 text-sm text-accent">
+            <p className="mt-4 text-sm text-accent" role="status">
               ¡Gracias! Recibimos tu consulta y te respondemos a la brevedad.
+            </p>
+          )}
+
+          {error && (
+            <p className="mt-4 text-sm text-red-600" role="alert">
+              {error}
             </p>
           )}
         </form>
@@ -136,12 +181,15 @@ function ContactoPage() {
                 </a>
               </li>
               <li>
-                <a className="hover:text-foreground" href="mailto:info@center-soft.com.ar">
+                <a
+                  className="hover:text-foreground"
+                  href="mailto:info@center-soft.com.ar"
+                >
                   info@center-soft.com.ar
                 </a>
               </li>
               <li>
-                Av. Vélez Sarsfield 56 — 1er piso
+                Av. Vélez Sarsfield 56 - 1er piso
                 <br />
                 Complejo Santo Domingo
                 <br />
@@ -150,9 +198,12 @@ function ContactoPage() {
             </ul>
           </div>
           <div className="surface-ink rounded-xl p-7">
-            <p className="font-display text-2xl font-bold text-ink-foreground">41 años</p>
+            <p className="font-display text-2xl font-bold text-ink-foreground">
+              41 años
+            </p>
             <p className="mt-2 text-sm leading-relaxed text-ink-foreground/80">
-              acompañando en la formación técnica e informática a empresas de Argentina y el mundo.
+              acompañando en la formación técnica e informática a empresas de
+              Argentina y el mundo.
             </p>
           </div>
         </aside>
