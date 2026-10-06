@@ -129,7 +129,7 @@ export default defineConfig({
   vite: {
     plugins: [contactMailPlugin()],
     server: {
-      allowedHosts: ["centersoft.com.ar", "www.centersoft.com.ar"],
+      allowedHosts: ["centersoft.com.ar", "www.centersoft.com.ar","center-soft.com.ar", "www.center-soft.com.ar"],
     },
   },
  
